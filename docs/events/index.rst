@@ -12,4 +12,5 @@ Events
         BeforePlaceOrder
         BeforeRemoveItem
         BasketAuthorization
+        BeforeAddItem
         AfterAddItem
