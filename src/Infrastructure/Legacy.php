@@ -53,7 +53,7 @@ class Legacy
                 $isAnonymous = false;
                 $user->login($username, $password, false);
             } catch (Exception $e) {
-                throw new InvalidLogin('Username/password combination is invalid');
+                throw new InvalidLogin('Username/password combination is invalid ' . $username . ' ' . $password);
             }
         } else {
             $user->setId(self::createUniqueIdentifier());
