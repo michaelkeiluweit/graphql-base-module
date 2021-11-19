@@ -29,7 +29,9 @@ return [
 ];
 
 function getTestDataDumpFilePath()
-{    var_dump(__DIR__ . '/../../Fixtures/testdemodata.sql');
+{
+    var_dump(__DIR__ . '/../../Fixtures/testdemodata.sql');
+
     return  __DIR__ . '/../../Fixtures/testdemodata.sql';
 }
 
