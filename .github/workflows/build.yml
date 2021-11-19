@@ -111,7 +111,7 @@ jobs:
               run: |
                   cd /home/runner/work/docker-eshop-sdk/data/oxideshop/
                   mkdir $GITHUB_WORKSPACE/artifact/phpunit/
-                  docker-compose exec -T -e MODULE_IDS=oe_graphql_base -e RUN_TESTS_FOR_SHOP=0 -e RUN_TESTS_FOR_MODULES=0 -e ACTIVATE_ALL_MODULES=1 -e ADDITIONAL_TEST_PATHS='/var/www/oxideshop/vendor/oxid-esales/graphql-base/tests' php php vendor/bin/runtests --coverage-php=/var/www/oxideshop/covs/unit.cov AllTestsUnit
+                  docker-compose exec -T -e MODULE_IDS=oe_graphql_base -e RUN_TESTS_FOR_SHOP=0 -e RUN_TESTS_FOR_MODULES=0 -e ACTIVATE_ALL_MODULES=1 -e TEST_SUITE='/var/www/oxideshop/vendor/oxid-esales/graphql-base/tests' -e ADDITIONAL_TEST_PATHS='/var/www/oxideshop/vendor/oxid-esales/graphql-base/tests' php php vendor/bin/runtests --coverage-php=/var/www/oxideshop/covs/unit.cov AllTestsUnit
 
             - name: Collect and merge coverage reports
               continue-on-error: true
