@@ -96,6 +96,7 @@ jobs:
                   docker-compose exec -T --user oxid php composer require codeception/module-rest:*
                   docker-compose exec -T --user oxid php composer require codeception/module-phpbrowser --dev
                   sed -i 's/<?php/<?php\n\nrequire(__DIR__ . "\/..\/c3.php");/' source/bootstrap.php
+                  make reset-db
                   docker-compose exec -T -e MODULE_IDS=oe_graphql_base -e RUN_TESTS_FOR_SHOP=0 -e RUN_TESTS_FOR_MODULES=0 -e ACTIVATE_ALL_MODULES=1 -e ADDITIONAL_TEST_PATHS='/var/www/oxideshop/vendor/oxid-esales/graphql-base/tests' php vendor/bin/runtests-codeception --coverage-phpunit
 
             - name: Unit Tests
