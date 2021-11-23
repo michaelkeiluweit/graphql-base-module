@@ -57,14 +57,6 @@ jobs:
               if: ${{ matrix.php == '8.0' && env.DEPENDENCIES == '' }}
               run: composer test:static
 
-            - uses: satackey/action-docker-layer-caching@v0.0.11
-              if: ${{ env.DEPENDENCIES == '' }}
-              continue-on-error: true
-              with:
-                  key: docker-layer-caching-${{ github.workflow }}-${{ matrix.php }}-{hash}
-                  restore-keys: |
-                      docker-layer-caching-${{ github.workflow }}-${{ matrix.php }}-
-
             - name: Build docker
               if: ${{ env.DEPENDENCIES == '' }}
               run: |
