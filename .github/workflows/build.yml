@@ -29,9 +29,11 @@ jobs:
                   extensions: gd, zip
 
             - name: Install dependencies
+              if: ${{ matrix.php == '8.0'}}
               run: composer update $DEFAULT_COMPOSER_FLAGS $DEPENDENCIES
 
             - name: Generated Unified Namespace
+              if: ${{ matrix.php == '8.0'}}
               run: ./vendor/bin/oe-eshop-unified_namespace_generator
 
             - name: Test syntax
